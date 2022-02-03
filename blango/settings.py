@@ -48,6 +48,14 @@ class Dev(Configuration):
   CSRF_COOKIE_SAMESITE = 'None'
   SESSION_COOKIE_SAMESITE = 'None'
 
+  REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.BasicAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.TokenAuthentication",
+    ]
+  }
+
   # Application definition
   INTERNAL_IPS = ["192.168.10.226"]
   INSTALLED_APPS = [
@@ -67,7 +75,8 @@ class Dev(Configuration):
       "allauth.account", 
       "allauth.socialaccount", 
       "allauth.socialaccount.providers.google",
-      "rest_framework"
+      "rest_framework",
+      "rest_framework.authtoken"
   ]
 
   MIDDLEWARE = [
