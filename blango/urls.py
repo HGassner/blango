@@ -38,7 +38,8 @@ urlpatterns = [
     path("ip/", blog.views.get_ip),
     path("api/v1/", include("blog.api.urls")),
     path("", blog.views.index),
-    path("post/<slug>/", blog.views.post_detail, name="blog-post-detail")
+    path("post/<slug>/", blog.views.post_detail, name="blog-post-detail"),
+    path("post-table/", blog.views.post_table, name="blog-post-table"),
 ]
 if settings.DEBUG:
     urlpatterns += [
